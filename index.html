@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xScript BS5 - Demo de Widgets</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; background-color: #f8f9fa; }
+        .demo-section { 
+            background: white; 
+            padding: 30px; 
+            margin-bottom: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .demo-section h2 { 
+            color: #0d6efd; 
+            border-bottom: 3px solid #0d6efd; 
+            padding-bottom: 15px; 
+            margin-bottom: 20px;
+        }
+        .widget-row { margin-bottom: 20px; }
+        .widget-wrapper { margin: 15px 0; }
+        .code-block {
+            background: #f5f5f5;
+            padding: 10px;
+            border-left: 4px solid #0d6efd;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 class="mb-4">
+            <i class="fas fa-cogs"></i> Demostración de xScript Bootstrap 5
+        </h1>
+
+        <!-- INPUTS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-keyboard"></i> Inputs</h2>
+            <div id="inputs-container"></div>
+        </div>
+
+        <!-- SELECTS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-list"></i> Selects</h2>
+            <div id="selects-container"></div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-mouse"></i> Buttons</h2>
+            <div id="buttons-container"></div>
+        </div>
+
+        <!-- CHECKBOXES Y RADIO BUTTONS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-check-square"></i> Checkboxes y Radio Buttons</h2>
+            <div id="checks-container"></div>
+        </div>
+
+        <!-- DATE/TIME PICKERS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-calendar"></i> Date/Time Pickers</h2>
+            <div id="date-container"></div>
+        </div>
+
+        <!-- ALERTS Y PROGRESS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-exclamation-circle"></i> Alerts y Progress</h2>
+            <div id="alerts-container"></div>
+        </div>
+
+        <!-- MODALS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-window-maximize"></i> Modals</h2>
+            <div id="modals-container"></div>
+        </div>
+
+        <!-- NAVBAR -->
+        <div class="demo-section">
+            <h2><i class="fas fa-bars"></i> NavBar</h2>
+            <div id="navbar-container"></div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="demo-section">
+            <h2><i class="fas fa-columns"></i> SideBar</h2>
+            <div id="sidebar-container"></div>
+        </div>
+
+        <!-- TABS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-folder"></i> Tabs</h2>
+            <div id="tabs-container"></div>
+        </div>
+
+        <!-- LISTS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-list-ul"></i> Lists</h2>
+            <div id="lists-container"></div>
+        </div>
+
+        <!-- TABLES -->
+        <div class="demo-section">
+            <h2><i class="fas fa-table"></i> Tables</h2>
+            <div id="tables-container"></div>
+        </div>
+
+        <!-- CAROUSEL -->
+        <div class="demo-section">
+            <h2><i class="fas fa-images"></i> Carousel</h2>
+            <div id="carousel-container"></div>
+        </div>
+
+        <!-- LAYOUTS -->
+        <div class="demo-section">
+            <h2><i class="fas fa-th"></i> Layouts</h2>
+            <div id="layout-container"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="js/xscript.js"></script>
+    <script src="js/xscript_bs5.js"></script>
+
+    <script>
+
+        // ============= DEMOSTRACIÓN =============
+
+        window.addEventListener('DOMContentLoaded', function(){
+            // INPUTS
+            var inputsContainer = document.getElementById('inputs-container');
+            var input1 = new xbStringInput("Nombre Completo", "name");
+            input1.append(inputsContainer);
+            
+            var input2 = new xbNumberInput("Edad", "age");
+            input2.append(inputsContainer);
+            
+            var input3 = new xbEmailInput("Email", "email");
+            input3.append(inputsContainer);
+            
+            var input4 = new xbTelInput("Teléfono", "phone");
+            input4.append(inputsContainer);
+            
+            var input5 = new xbPasswordInput("Contraseña", "password");
+            input5.append(inputsContainer);
+            
+            var input6 = new xbFileInput("Seleccionar Archivo", "file");
+            input6.append(inputsContainer);
+            
+            var input7 = new xbDateInput("Fecha de Nacimiento", "birthdate");
+            input7.append(inputsContainer);
+            
+            var input8 = new xbTextAreaInput("Comentarios", "comments", 4);
+            input8.append(inputsContainer);
+
+            // SELECTS
+            var selectContainer = document.getElementById('selects-container');
+            var select1 = new xbSelect("País", "country");
+            select1.addOption("España", "es");
+            select1.addOption("México", "mx");
+            select1.addOption("Argentina", "ar");
+            select1.addOption("Colombia", "co");
+            select1.append(selectContainer);
+
+            // BUTTONS
+            var buttonsContainer = document.getElementById('buttons-container');
+            var btn1 = new xbButton("Botón Primario", "btn-primary");
+            btn1.append(buttonsContainer);
+            
+            var btn2 = new xbButton("Botón Éxito", "btn-success");
+            btn2.append(buttonsContainer);
+            
+            var btn3 = new xbButton("Botón Peligro", "btn-danger");
+            btn3.append(buttonsContainer);
+            
+            var btn4 = new xbButton("Botón Advertencia", "btn-warning");
+            btn4.append(buttonsContainer);
+            
+            var link1 = new xbLink("Enlace Bootstrap", "#", "btn-info");
+            link1.append(buttonsContainer);
+
+            // CHECKBOXES Y RADIOS
+            var checksContainer = document.getElementById('checks-container');
+            var check1 = new xbCheckBox("Opción 1", "opt1");
+            check1.append(checksContainer);
+            
+            var check2 = new xbCheckBox("Opción 2", "opt2");
+            check2.append(checksContainer);
+            
+            var radio1 = new xbRadioBtn("Opción A", "group1");
+            radio1.append(checksContainer);
+            
+            var radio2 = new xbRadioBtn("Opción B", "group1");
+            radio2.append(checksContainer);
+
+            // ALERTS Y PROGRESS
+            var alertsContainer = document.getElementById('alerts-container');
+            var alert1 = new xbAlert("alert-info");
+            alert1.node.innerHTML = "<strong>¡Información!</strong> Este es un mensaje informativo.";
+            alert1.append(alertsContainer);
+            
+            var alert2 = new xbAlert("alert-success");
+            alert2.node.innerHTML = "<strong>¡Éxito!</strong> La operación se completó correctamente.";
+            alert2.append(alertsContainer);
+            
+            var alert3 = new xbAlert("alert-warning");
+            alert3.node.innerHTML = "<strong>¡Advertencia!</strong> Por favor, revisa esto.";
+            alert3.append(alertsContainer);
+            
+            var alert4 = new xbAlert("alert-danger");
+            alert4.node.innerHTML = "<strong>¡Error!</strong> Algo salió mal.";
+            alert4.append(alertsContainer);
+            
+            var prog = new xbProgressBar(0, 100);
+            prog.setProgress(65, "65%");
+            prog.append(alertsContainer);
+
+            // MODALS
+            var modalsContainer = document.getElementById('modals-container');
+            var modal = new xbModal("Modal de Ejemplo");
+            modal.addToBody(new xHtml("p","Este es un diálogo modal"));
+            var closeBtn = new xbButton("Cerrar", "btn-secondary");
+            closeBtn.node.setAttribute("data-bs-dismiss", "modal");
+            modal.addToFooter(closeBtn);
+            
+            var openModalBtn = new xbButton("Abrir Modal", "btn-primary");
+            openModalBtn.bindFunction(function(){ modal.show(); });
+            openModalBtn.append(modalsContainer);
+
+            // NAVBAR
+            var navbarContainer = document.getElementById('navbar-container');
+            var navbar = new xbNavBar("Mi App");
+            navbar.addItem(new xbNavBarItem("Inicio"));
+            navbar.addItem(new xbNavBarItem("Acerca de"));
+            navbar.addItem(new xbNavBarItem("Contacto"));
+            navbar.append(navbarContainer);
+
+            // SIDEBAR
+            var sidebarContainer = document.getElementById('sidebar-container');
+            var sidebar = new xbSideBar("border");
+            sidebar.addItem(new xLink("Dashboard","#",""));
+            sidebar.addItem(new xLink("Configuración","#",""));
+            sidebar.addItem(new xLink("Usuarios","#",""));
+            sidebar.addItem(new xLink("Reportes","#",""));
+            sidebar.append(sidebarContainer);
+
+            // TABS
+            var tabsContainer = document.getElementById('tabs-container');
+            var tabs = new xbTabs("nav-tabs");
+            tabs.addPane("Tab 1", new xbTabPane("responsive").addElement(new xSection()));
+            tabs.addPane("Tab 2", new xbTabPane("responsive").addElement(new xSection()));
+            tabs.addPane("Tab 3", new xbTabPane("responsive").addElement(new xSection()));
+            tabs.append(tabsContainer);
+
+            // LIST GROUP
+            var listsContainer = document.getElementById('lists-container');
+            var listGroup = new xbListGroup();
+            listGroup.addItem(new xText("Elemento 1"));
+            listGroup.addItem(new xText("Elemento 2"));
+            listGroup.addItem(new xText("Elemento 3"));
+            listGroup.addItem(new xText("Elemento 4"), "list-group-item-active");
+            listGroup.append(listsContainer);
+
+            // TABLES
+            var tablesContainer = document.getElementById('tables-container');
+            var table = new xbTable("table-hover");
+            table.addHeadings(["Nombre", "Email", "Estado"]);
+            table.addRow(["Juan García", "juan@example.com", "Activo"]);
+            table.addRow(["María López", "maria@example.com", "Activo"]);
+            table.addRow(["Carlos Martín", "carlos@example.com", "Inactivo"]);
+            table.append(tablesContainer);
+
+            // CAROUSEL
+            var carouselContainer = document.getElementById('carousel-container');
+            var carousel = document.createElement('div');
+            carousel.className = 'carousel slide';
+            carousel.setAttribute('data-bs-ride', 'carousel');
+            carousel.innerHTML = `
+                <div class="carousel-indicators">
+                    <button type="button" class="active" data-bs-target="#carouselExample" data-bs-slide-to="0"></button>
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/800x400?text=Slide+1" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x400?text=Slide+2" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x400?text=Slide+3" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+            `;
+            carouselContainer.appendChild(carousel);
+
+            // LAYOUTS
+            var layoutContainer = document.getElementById('layout-container');
+            var layoutDiv = document.createElement('div');
+            layoutDiv.className = 'row';
+            layoutDiv.innerHTML = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Columna 1</div>
+                        <div class="card-body"><p>Contenido de la columna 1</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Columna 2</div>
+                        <div class="card-body"><p>Contenido de la columna 2</p></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">Columna 3</div>
+                        <div class="card-body"><p>Contenido de la columna 3</p></div>
+                    </div>
+                </div>
+            `;
+            layoutContainer.appendChild(layoutDiv);
+        });
+    </script>
+</body>
+</html>

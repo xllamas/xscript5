@@ -26,7 +26,7 @@ function xbStringInput(label,name,clss,wclss){
    this.node = document.createElement("div");
    this.node.id = this.id + "_w";
    this.node.className = this.wclss;
-   var l = "<label class='form-label' for='" + name + "'>" + label + "</label>";
+   var l = "<label class='form-label fw-bold' for='" + name + "'>" + label + "</label>";
    var i = "<input type='text" +
            "' id='" + this.id +
            "' name='" + name +
@@ -141,7 +141,7 @@ function xbTextAreaInput(label,name,rows,clss,wclss){
    this.node = document.createElement("div");
    this.node.id = this.id + "_w";
    this.node.className = this.wclss;
-   var l = "<label class='form-label' for='" + name + "'>" + label + "</label>";
+   var l = "<label class='form-label fw-bold' for='" + name + "'>" + label + "</label>";
    var i = "<textarea" +
            " id='" + this.id +
            "' name='" + name +
@@ -263,7 +263,7 @@ function xbSelect(label,sname,clss,wclss){
    this.node = document.createElement("div");
    this.node.id = this.id + "_w";
    this.node.className = this.wclss;
-   var l = "<label class='form-label' for='" + sname + "'>" + label + "</label>";
+   var l = "<label class='form-label fw-bold' for='" + sname + "'>" + label + "</label>";
    var s = "<select id='" + this.id + "' name='" + sname + "' class='" + this.clss + "'>";
    s += "</select>";
    this.node.innerHTML = l + s;
@@ -396,7 +396,7 @@ function xbDateTimePicker(label,name,noManual,icon,clss,wclss){
    else
       ev = " data-td-target-input='nearest' data-td-target-toggle='nearest' ";
    
-   var l = "<label class='form-label' for='" + name + "'>" + label + "</label>";
+   var l = "<label class='form-label fw-bold' for='" + name + "'>" + label + "</label>";
    var i = "<div class='input-group' id='" + this.id + "_ig" + "' data-td-target-input='nearest' data-td-target-toggle='nearest'>" +
            "<input type='text" +
            "' id='" + this.id +
@@ -437,9 +437,11 @@ xbDateTimePicker.prototype.setMaxDate = function(date){
 }
 
 xbDateTimePicker.prototype.getValue = function(){
+   /*
    if (this.tempusPicker && this.tempusPicker.viewDate){
       return this.tempusPicker.viewDate;
    }
+   */
    return this.node.querySelector("input").value;
 }
 
@@ -454,12 +456,11 @@ xbDateTimePicker.prototype.setValue = function(value){
 }
 
 xbDateTimePicker.prototype.run = function(){
-   var inputId = this.id + "_ig";
    var options = {
       localization: {
          locale: 'es',
          format: this.format,
-         hourCycle: null
+         hourCycle: 'h24'
       },
       display: {
          icons: {
@@ -506,8 +507,8 @@ xbDateTimePicker.prototype.run = function(){
 
    try {
       // Inicializar Tempus Dominus
-      var element = document.getElementById(inputId);
-      this.tempusPicker = new tempusdominus.TempusDominus(element, options);
+      var element = document.getElementById(this.id);
+      this.tempusPicker = new tempusDominus.TempusDominus(element, options);
    }
    catch(e){
       console.error("Error inicializando Tempus Dominus: " + e);
@@ -934,6 +935,8 @@ xbNavBar.prototype.setTitle = function(title){
    if (brand) brand.innerHTML = title;
    return this;
 }
+
+
 
 /* xbNavBarDropdown */
 

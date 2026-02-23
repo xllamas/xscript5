@@ -327,4 +327,4 @@ form.append(document.body);
 
 ## License
 
-Copyright © 2014 Xavier Llamas Rolland. Released under the [GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html).
+Copyright © 2026 Xavier Llamas Rolland. Released under the [GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html).

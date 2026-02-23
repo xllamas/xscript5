@@ -6,7 +6,7 @@
     <title>xScript BS5 - Demo de Widgets</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/css/tempus-dominus.min.css" crossorigin="anonymous">    
     <style>
         body { padding: 20px; background-color: #f8f9fa; }
         .demo-section { 
@@ -130,7 +130,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@eonasdan/tempus-dominus@6.9.4/dist/js/tempus-dominus.min.js" crossorigin="anonymous"></script>
     <script src="js/xscript.js"></script>
     <script src="js/xscript_bs5.js"></script>
 
@@ -204,6 +205,13 @@
             
             var radio2 = new xbRadioBtn("Opción B", "group1");
             radio2.append(checksContainer);
+
+            // DATETIME PICKERS
+
+            var datetimeContainer = document.getElementById("date-container");
+            var dt1 = new xbDateTimePicker("Fecha y Hora");
+            dt1.append(datetimeContainer);
+            dt1.run();
 
             // ALERTS Y PROGRESS
             var alertsContainer = document.getElementById('alerts-container');

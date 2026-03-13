@@ -389,13 +389,7 @@ function xbDateTimePicker(label,name,noManual,icon,clss,wclss){
    this.node = document.createElement("div");
    this.node.id = this.id + "_w";
    this.node.className = this.wclss;
-   
-   if (noManual){
-      ev = " data-td-target-input='nearest' data-td-target-toggle='nearest' ";
-   }
-   else
-      ev = " data-td-target-input='nearest' data-td-target-toggle='nearest' ";
-   
+      
    var l = "<label class='form-label fw-bold' for='" + name + "'>" + label + "</label>";
    var i = "<div class='input-group' id='" + this.id + "_ig" + "' data-td-target-input='nearest' data-td-target-toggle='nearest'>" +
            "<input type='text" +
@@ -509,6 +503,14 @@ xbDateTimePicker.prototype.run = function(){
       // Inicializar Tempus Dominus
       var element = document.getElementById(this.id);
       this.tempusPicker = new tempusDominus.TempusDominus(element, options);
+      var tp = this.tempusPicker;
+      var div = document.getElementById(this.id + "_ig");
+      var span = div.querySelectorAll("span");
+      span[0].addEventListener("click", function(e){
+            tp.show();
+            e.preventDefault();
+            e.stopPropagation();
+         });
    }
    catch(e){
       console.error("Error inicializando Tempus Dominus: " + e);

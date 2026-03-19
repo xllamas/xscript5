@@ -26,7 +26,7 @@ function xbStringInput(label,name,clss,wclss){
    this.node = document.createElement("div");
    this.node.id = this.id + "_w";
    this.node.className = this.wclss;
-   var l = "<label class='form-label fw-bold' for='" + name + "'>" + label + "</label>";
+   var l = "<label class='form-label fw-bold' for='" + this.id + "'>" + label + "</label>";
    var i = "<input type='text" +
            "' id='" + this.id +
            "' name='" + name +
@@ -98,6 +98,15 @@ function xbPasswordInput(label,name,clss,wclss){
 }
 
 xbPasswordInput.prototype = new xbStringInput();
+
+/* xbColorPicker */
+
+function xbColorPicker(label,name,clss,wclss){
+   xbStringInput.call(this,label,name,"form-control form-control-color " + (clss || ""),wclss);
+   this.setType("color");
+}
+
+xbColorPicker.prototype = new xbStringInput();
 
 /* xbFileInput */
 
